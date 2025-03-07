@@ -40,6 +40,7 @@ class Contact {
     }
 }
 
+
 class AddressBook {
     constructor() {
         this.contacts = [];
@@ -56,5 +57,17 @@ class AddressBook {
         } else {
             throw new Error("Contact not found.");
         }
+    }
+
+    deleteContact(name) {
+        let initialLength = this.contacts.length;
+        this.contacts = this.contacts.filter(contact => contact.firstName !== name);
+        if (this.contacts.length === initialLength) {
+            throw new Error("Contact not found.");
+        }
+    }
+
+    getContactCount() {
+        return this.contacts.reduce(count => count + 1, 0);
     }
 }
