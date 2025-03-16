@@ -40,6 +40,7 @@ class Contact {
     }
 }
 
+
 class AddressBook {
     constructor() {
         this.contacts = [];
@@ -64,5 +65,9 @@ class AddressBook {
         if (this.contacts.length === initialLength) {
             throw new Error("Contact not found.");
         }
+    }
+
+    getContactCount() {
+        return this.contacts.reduce(count => count + 1, 0);
     }
 }
